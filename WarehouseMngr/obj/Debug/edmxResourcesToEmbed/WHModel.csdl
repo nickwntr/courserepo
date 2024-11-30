@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WareHouseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Clents">
+    <Key>
+      <PropertyRef Name="ClientId" />
+    </Key>
+    <Property Name="ClientId" Type="Int32" Nullable="false" />
+    <Property Name="ClientName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="UnLoad" Relationship="Self.FK_UnLoad_Clents" FromRole="Clents" ToRole="UnLoad" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="Int16" Nullable="false" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Type">
+    <Key>
+      <PropertyRef Name="TypeID" />
+    </Key>
+    <Property Name="TypeID" Type="Int16" Nullable="false" />
+    <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="UnLoad" Relationship="Self.FK_UnLoad_Type" FromRole="Type" ToRole="UnLoad" />
+    <NavigationProperty Name="WHProds" Relationship="Self.FK_WHProds_Type" FromRole="Type" ToRole="WHProds" />
+  </EntityType>
+  <EntityType Name="UnLoad">
+    <Key>
+      <PropertyRef Name="LoadID" />
+    </Key>
+    <Property Name="LoadID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LoadArticle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LoadName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LoadDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Loader" Type="Int32" Nullable="false" />
+    <Property Name="LoadPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="LoadCount" Type="Int32" Nullable="false" />
+    <Property Name="LoadType" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="Clents" Relationship="Self.FK_UnLoad_Clents" FromRole="UnLoad" ToRole="Clents" />
+    <NavigationProperty Name="Type" Relationship="Self.FK_UnLoad_Type" FromRole="UnLoad" ToRole="Type" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="UserLName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserFName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserLogin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserPass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserRole" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="WHProds">
+    <Key>
+      <PropertyRef Name="ProdID" />
+    </Key>
+    <Property Name="ProdID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProdArticle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProdName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProdLoc" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProdPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ProdCount" Type="Int32" Nullable="false" />
+    <Property Name="ProdType" Type="Int16" Nullable="false" />
+    <Property Name="ProdDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ProdImg" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Type" Relationship="Self.FK_WHProds_Type" FromRole="WHProds" ToRole="Type" />
+  </EntityType>
+  <Association Name="FK_UnLoad_Clents">
+    <End Role="Clents" Type="Self.Clents" Multiplicity="1" />
+    <End Role="UnLoad" Type="Self.UnLoad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clents">
+        <PropertyRef Name="ClientId" />
+      </Principal>
+      <Dependent Role="UnLoad">
+        <PropertyRef Name="Loader" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="UserRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UnLoad_Type">
+    <End Role="Type" Type="Self.Type" Multiplicity="1" />
+    <End Role="UnLoad" Type="Self.UnLoad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type">
+        <PropertyRef Name="TypeID" />
+      </Principal>
+      <Dependent Role="UnLoad">
+        <PropertyRef Name="LoadType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WHProds_Type">
+    <End Role="Type" Type="Self.Type" Multiplicity="1" />
+    <End Role="WHProds" Type="Self.WHProds" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type">
+        <PropertyRef Name="TypeID" />
+      </Principal>
+      <Dependent Role="WHProds">
+        <PropertyRef Name="ProdType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WHEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Clents" EntityType="Self.Clents" />
+    <EntitySet Name="Role" EntityType="Self.Role" />
+    <EntitySet Name="Type" EntityType="Self.Type" />
+    <EntitySet Name="UnLoad" EntityType="Self.UnLoad" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <EntitySet Name="WHProds" EntityType="Self.WHProds" />
+    <AssociationSet Name="FK_UnLoad_Clents" Association="Self.FK_UnLoad_Clents">
+      <End Role="Clents" EntitySet="Clents" />
+      <End Role="UnLoad" EntitySet="UnLoad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UnLoad_Type" Association="Self.FK_UnLoad_Type">
+      <End Role="Type" EntitySet="Type" />
+      <End Role="UnLoad" EntitySet="UnLoad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WHProds_Type" Association="Self.FK_WHProds_Type">
+      <End Role="Type" EntitySet="Type" />
+      <End Role="WHProds" EntitySet="WHProds" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

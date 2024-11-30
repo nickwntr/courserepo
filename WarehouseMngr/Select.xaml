@@ -1,0 +1,17 @@
+﻿<Page x:Class="WarehouseMngr.Select"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WarehouseMngr"
+      mc:Ignorable="d" 
+      d:DesignHeight="262" d:DesignWidth="365" Height="262" Width="365"
+      Title="Select">
+
+    <Grid>
+        <Button Content="Список товаров" Name="ToWH" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Click="ToWH_Click"/>
+        <Button Content="Отгрузка" Name="ToUnLoad" HorizontalAlignment="Center" Margin="0,131,0,0" VerticalAlignment="Top" Click="ToUnLoad_Click" Width="92"/>
+        <Label Content="Выберите режим" HorizontalAlignment="Center" FontSize="18" FontFamily="Times New Roman" Margin="0,59,0,0" VerticalAlignment="Top" Height="36" Width="168" HorizontalContentAlignment="Center"/>
+
+    </Grid>
+</Page>

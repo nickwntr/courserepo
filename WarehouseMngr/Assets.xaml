@@ -1,0 +1,66 @@
+﻿<Page x:Class="WarehouseMngr.Assets"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WarehouseMngr"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800" Height="450" Width="800"
+      Title="Assets">
+
+    <Grid>
+        <Label x:Name="UserLog" Content="" Margin="0,0,692,426"/>
+        <Label x:Name="UserRole" Content="" Margin="108,0,577,426"/>
+        <TextBox x:Name="SearchBox" Width="auto" MinWidth="70" Margin="605,0,55,426"/>
+        <Button Click="Back_Click" Content="Выйти" Margin="750,0,0,426"/>
+        <ListView Margin="0,24,0,27" Name="LView" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Vertical"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="450"/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" MinHeight="12"/>
+                                <RowDefinition Height="auto" MinHeight="12"/>
+                                <RowDefinition Height="auto" MinHeight="12"/>
+                                <RowDefinition Height="auto" MinHeight="12"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Name="ItemArt"  Content="{Binding ProdArticle}"/>
+                            <Label Grid.Row="1" Name="ItemName"   Content="{Binding ProdName}"/>
+                            <Label Grid.Row="2" Name="ItemPrice" Content="{Binding ProdPrice}" ContentStringFormat="0.00Р"/>
+                            <Label Grid.Row="3" Name="ItemDate" Content="{Binding ProdDate}"/>
+                        </Grid>
+                        <Grid Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" MinHeight="12"/>
+                                <RowDefinition Height="auto" MinHeight="12"/>
+                                <RowDefinition Height="auto" MinHeight="12"/>
+                                <RowDefinition Height="auto" MinHeight="12"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Content="{Binding ProdName}"/>
+                            <Label Grid.Row="1" Content="Кол-Во:"/>
+                            <Label Grid.Row="2" Content="{Binding ProdCount}" ContentStringFormat="0 шт"/>
+                            <Label Grid.Row="3" Content="{Binding ProdLoc}" ContentStringFormat=""/>
+                        </Grid>
+                        <Image Name="pic" Grid.Column="0" Source="{Binding ProdImg, TargetNullValue={StaticResource ResourceKey=NoImg}}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Content="Добавить" Name="AddItem" Click="AddItem_Click" Visibility="Hidden" Width="60" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,7"/>
+        <Button Content="Изменить" Name="EdtItem" Click="EdtItem_Click" Visibility="Hidden" Width="60" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,7"/>
+        <Button Content="Удалить" Name="DelItem" Click="DelItem_Click" Visibility="Hidden" Width="60" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,7"/>
+        <Label Content="Поиск" HorizontalAlignment="Left" Margin="553,-1,0,0" VerticalAlignment="Top" Height="24" Width="52"/>
+        <ComboBox Name="Fltrbox" HorizontalAlignment="Left" Margin="428,1,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="fltr"/>
+        <Button Content="Отчет" Click="ConsoldTo" HorizontalAlignment="Left" Margin="370,2,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Page>

@@ -1,0 +1,25 @@
+﻿<Page x:Class="WarehouseMngr.ConsoldSum"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WarehouseMngr"
+      mc:Ignorable="d" Height="450" Width="800"
+      Title="ConsoldSum">
+
+    <Grid>
+        <DataGrid Name="DGView" HorizontalAlignment="Center" AutoGenerateColumns="False" VerticalAlignment="Top" Height="329" Width="800" Margin="0,70,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header = "Id" Width="*" Binding="{Binding ProdID}"/>
+                <DataGridTextColumn Header = "Name" Width="*" Binding="{Binding ProdName}"/>
+                <DataGridTextColumn Header = "Location" Width="*" Binding="{Binding ProdLoc}"/>
+                <DataGridTextColumn Header = "Price" Width="*" Binding="{Binding ProdPrice}"/>
+                <DataGridTextColumn Header = "Count" Width="*" Binding="{Binding ProdCount}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="" Name="datelbl" HorizontalAlignment="Left" Margin="10,29,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Name="namelbl" Content="ООО Балашихский кирпичный склад"  HorizontalAlignment="Left" Margin="10,9,0,0" VerticalAlignment="Top" Width="219"/>
+        <Label Content="" Name="sumLbl" HorizontalAlignment="Left" Margin="600,414,0,0" VerticalAlignment="Top"/>
+        <Button Content="Печать" Name="printclk" Click="Print_Click" HorizontalAlignment="Left" Margin="747,420,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Page>

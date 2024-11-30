@@ -1,0 +1,85 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Games\\2\\WarehouseMngr\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{855AE3CB-853A-42F3-86CA-E481C7A4F3EB}|WarehouseMngr.csproj|c:\\games\\2\\warehousemngr\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{855AE3CB-853A-42F3-86CA-E481C7A4F3EB}|WarehouseMngr.csproj|solutionrelative:app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{855AE3CB-853A-42F3-86CA-E481C7A4F3EB}|WarehouseMngr.csproj|C:\\Games\\2\\WarehouseMngr\\additem.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{855AE3CB-853A-42F3-86CA-E481C7A4F3EB}|WarehouseMngr.csproj|solutionrelative:additem.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{855AE3CB-853A-42F3-86CA-E481C7A4F3EB}|WarehouseMngr.csproj|C:\\Games\\2\\WarehouseMngr\\auth.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{855AE3CB-853A-42F3-86CA-E481C7A4F3EB}|WarehouseMngr.csproj|solutionrelative:auth.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{855AE3CB-853A-42F3-86CA-E481C7A4F3EB}|WarehouseMngr.csproj|C:\\Games\\2\\WarehouseMngr\\assets.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{855AE3CB-853A-42F3-86CA-E481C7A4F3EB}|WarehouseMngr.csproj|solutionrelative:assets.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Games\\2\\WarehouseMngr\\App.xaml.cs",
+              "RelativeDocumentMoniker": "App.xaml.cs",
+              "ToolTip": "C:\\Games\\2\\WarehouseMngr\\App.xaml.cs",
+              "RelativeToolTip": "App.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-06-25T20:21:09.994Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Auth.xaml.cs",
+              "DocumentMoniker": "C:\\Games\\2\\WarehouseMngr\\Auth.xaml.cs",
+              "RelativeDocumentMoniker": "Auth.xaml.cs",
+              "ToolTip": "C:\\Games\\2\\WarehouseMngr\\Auth.xaml.cs",
+              "RelativeToolTip": "Auth.xaml.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAowDEAAAAJAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADjSURBVDhPY0AGretv/t9x7tl/KJd0sOfii/\u002Bimfv\u002Bbzv7lGhDGBlid2Eo1pTkZNiSLsVQWVkJFWFgYGdnZygoKGAwNjZmhAphgt0XnsFd8P79\u002B/9Pnz6F47CwsP/R0dH/z549i2IhE5QGg1P3PzMsTtVgsFTiYvj27RtUFAF\u002B//7N0NfXx4BsCIoBIVoMDOaKnFg1wwDIkAkTJkB5oDBAAnFxcf/b29uhPNygsLCQYdWqVWC9KC748eMHlEU8QDGAHDBqABUMQEkHmZmZ/9\u002B\u002BfQvl4QbCwsIM06dPx50niAcMDADfJl5g9BqhpwAAAABJRU5ErkJggg==",
+              "WhenOpened": "2023-06-23T10:51:04.954Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AddItem.xaml.cs",
+              "DocumentMoniker": "C:\\Games\\2\\WarehouseMngr\\AddItem.xaml.cs",
+              "RelativeDocumentMoniker": "AddItem.xaml.cs",
+              "ToolTip": "C:\\Games\\2\\WarehouseMngr\\AddItem.xaml.cs",
+              "RelativeToolTip": "AddItem.xaml.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAApwDEAAAApAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADjSURBVDhPY0AGretv/t9x7tl/KJd0sOfii/\u002Bimfv\u002Bbzv7lGhDGBlid2Eo1pTkZNiSLsVQWVkJFWFgYGdnZygoKGAwNjZmhAphgt0XnsFd8P79\u002B/9Pnz6F47CwsP/R0dH/z549i2IhE5QGg1P3PzMsTtVgsFTiYvj27RtUFAF\u002B//7N0NfXx4BsCIoBIVoMDOaKnFg1wwDIkAkTJkB5oDBAAnFxcf/b29uhPNygsLCQYdWqVWC9KC748eMHlEU8QDGAHDBqABUMQEkHmZmZ/9\u002B\u002BfQvl4QbCwsIM06dPx50niAcMDADfJl5g9BqhpwAAAABJRU5ErkJggg==",
+              "WhenOpened": "2023-06-22T10:03:05.113Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Assets.xaml.cs",
+              "DocumentMoniker": "C:\\Games\\2\\WarehouseMngr\\Assets.xaml.cs",
+              "RelativeDocumentMoniker": "Assets.xaml.cs",
+              "ToolTip": "C:\\Games\\2\\WarehouseMngr\\Assets.xaml.cs",
+              "RelativeToolTip": "Assets.xaml.cs",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAgwIgAAAAFAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADjSURBVDhPY0AGretv/t9x7tl/KJd0sOfii/\u002Bimfv\u002Bbzv7lGhDGBlid2Eo1pTkZNiSLsVQWVkJFWFgYGdnZygoKGAwNjZmhAphgt0XnsFd8P79\u002B/9Pnz6F47CwsP/R0dH/z549i2IhE5QGg1P3PzMsTtVgsFTiYvj27RtUFAF\u002B//7N0NfXx4BsCIoBIVoMDOaKnFg1wwDIkAkTJkB5oDBAAnFxcf/b29uhPNygsLCQYdWqVWC9KC748eMHlEU8QDGAHDBqABUMQEkHmZmZ/9\u002B\u002BfQvl4QbCwsIM06dPx50niAcMDADfJl5g9BqhpwAAAABJRU5ErkJggg==",
+              "WhenOpened": "2023-06-22T09:51:28.633Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+﻿<Page x:Class="WarehouseMngr.Sel"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WarehouseMngr"
+      mc:Ignorable="d" 
+      d:DesignHeight="262" d:DesignWidth="365" Height="262" Width="365"
+      Title="Sel">
+
+    <Grid>
+        <Button Content="Приход" HorizontalAlignment="Left" Margin="80,0,0,0" VerticalAlignment="Center" Width="71" Height="38" Click="ButtonWH_Click"/>
+        <Button Content="Отгрузка" HorizontalAlignment="Right" Margin="0,0,80,0" VerticalAlignment="Center" Height="38" Width="72" Click="ButtonUnload_Click"/>
+        <Label Content="Выберите таблицу" HorizontalAlignment="Center" Margin="0,80,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Page>

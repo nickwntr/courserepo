@@ -1,0 +1,377 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WareHouseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Clents">
+          <Key>
+            <PropertyRef Name="ClientId" />
+          </Key>
+          <Property Name="ClientId" Type="int" Nullable="false" />
+          <Property Name="ClientName" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="smallint" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Type">
+          <Key>
+            <PropertyRef Name="TypeID" />
+          </Key>
+          <Property Name="TypeID" Type="smallint" Nullable="false" />
+          <Property Name="TypeName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UnLoad">
+          <Key>
+            <PropertyRef Name="LoadID" />
+          </Key>
+          <Property Name="LoadID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LoadArticle" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LoadName" Type="varchar(max)" Nullable="false" />
+          <Property Name="LoadDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="Loader" Type="int" Nullable="false" />
+          <Property Name="LoadPrice" Type="money" Nullable="false" />
+          <Property Name="LoadCount" Type="int" Nullable="false" />
+          <Property Name="LoadType" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="UserLName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserFName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserLogin" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserPass" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserRole" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WHProds">
+          <Key>
+            <PropertyRef Name="ProdID" />
+          </Key>
+          <Property Name="ProdID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProdArticle" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProdName" Type="varchar(max)" Nullable="false" />
+          <Property Name="ProdLoc" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="ProdPrice" Type="money" Nullable="false" />
+          <Property Name="ProdCount" Type="int" Nullable="false" />
+          <Property Name="ProdType" Type="smallint" Nullable="false" />
+          <Property Name="ProdDate" Type="date" Nullable="false" />
+          <Property Name="ProdImg" Type="image" />
+        </EntityType>
+        <Association Name="FK_UnLoad_Clents">
+          <End Role="Clents" Type="Self.Clents" Multiplicity="1" />
+          <End Role="UnLoad" Type="Self.UnLoad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clents">
+              <PropertyRef Name="ClientId" />
+            </Principal>
+            <Dependent Role="UnLoad">
+              <PropertyRef Name="Loader" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UnLoad_Type">
+          <End Role="Type" Type="Self.Type" Multiplicity="1" />
+          <End Role="UnLoad" Type="Self.UnLoad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="UnLoad">
+              <PropertyRef Name="LoadType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WHProds_Type">
+          <End Role="Type" Type="Self.Type" Multiplicity="1" />
+          <End Role="WHProds" Type="Self.WHProds" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="WHProds">
+              <PropertyRef Name="ProdType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WareHouseModelStoreContainer">
+          <EntitySet Name="Clents" EntityType="Self.Clents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Type" EntityType="Self.Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UnLoad" EntityType="Self.UnLoad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WHProds" EntityType="Self.WHProds" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_UnLoad_Clents" Association="Self.FK_UnLoad_Clents">
+            <End Role="Clents" EntitySet="Clents" />
+            <End Role="UnLoad" EntitySet="UnLoad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UnLoad_Type" Association="Self.FK_UnLoad_Type">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="UnLoad" EntitySet="UnLoad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WHProds_Type" Association="Self.FK_WHProds_Type">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="WHProds" EntitySet="WHProds" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WareHouseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Clents">
+          <Key>
+            <PropertyRef Name="ClientId" />
+          </Key>
+          <Property Name="ClientId" Type="Int32" Nullable="false" />
+          <Property Name="ClientName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="UnLoad" Relationship="Self.FK_UnLoad_Clents" FromRole="Clents" ToRole="UnLoad" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int16" Nullable="false" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Type">
+          <Key>
+            <PropertyRef Name="TypeID" />
+          </Key>
+          <Property Name="TypeID" Type="Int16" Nullable="false" />
+          <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="UnLoad" Relationship="Self.FK_UnLoad_Type" FromRole="Type" ToRole="UnLoad" />
+          <NavigationProperty Name="WHProds" Relationship="Self.FK_WHProds_Type" FromRole="Type" ToRole="WHProds" />
+        </EntityType>
+        <EntityType Name="UnLoad">
+          <Key>
+            <PropertyRef Name="LoadID" />
+          </Key>
+          <Property Name="LoadID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LoadArticle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LoadName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LoadDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Loader" Type="Int32" Nullable="false" />
+          <Property Name="LoadPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="LoadCount" Type="Int32" Nullable="false" />
+          <Property Name="LoadType" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Clents" Relationship="Self.FK_UnLoad_Clents" FromRole="UnLoad" ToRole="Clents" />
+          <NavigationProperty Name="Type" Relationship="Self.FK_UnLoad_Type" FromRole="UnLoad" ToRole="Type" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="UserLName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserFName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserLogin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserPass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserRole" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="WHProds">
+          <Key>
+            <PropertyRef Name="ProdID" />
+          </Key>
+          <Property Name="ProdID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProdArticle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProdName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProdLoc" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProdPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ProdCount" Type="Int32" Nullable="false" />
+          <Property Name="ProdType" Type="Int16" Nullable="false" />
+          <Property Name="ProdDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ProdImg" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Type" Relationship="Self.FK_WHProds_Type" FromRole="WHProds" ToRole="Type" />
+        </EntityType>
+        <Association Name="FK_UnLoad_Clents">
+          <End Role="Clents" Type="Self.Clents" Multiplicity="1" />
+          <End Role="UnLoad" Type="Self.UnLoad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clents">
+              <PropertyRef Name="ClientId" />
+            </Principal>
+            <Dependent Role="UnLoad">
+              <PropertyRef Name="Loader" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UnLoad_Type">
+          <End Role="Type" Type="Self.Type" Multiplicity="1" />
+          <End Role="UnLoad" Type="Self.UnLoad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="UnLoad">
+              <PropertyRef Name="LoadType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WHProds_Type">
+          <End Role="Type" Type="Self.Type" Multiplicity="1" />
+          <End Role="WHProds" Type="Self.WHProds" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="WHProds">
+              <PropertyRef Name="ProdType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WHEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clents" EntityType="Self.Clents" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="Type" EntityType="Self.Type" />
+          <EntitySet Name="UnLoad" EntityType="Self.UnLoad" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="WHProds" EntityType="Self.WHProds" />
+          <AssociationSet Name="FK_UnLoad_Clents" Association="Self.FK_UnLoad_Clents">
+            <End Role="Clents" EntitySet="Clents" />
+            <End Role="UnLoad" EntitySet="UnLoad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UnLoad_Type" Association="Self.FK_UnLoad_Type">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="UnLoad" EntitySet="UnLoad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WHProds_Type" Association="Self.FK_WHProds_Type">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="WHProds" EntitySet="WHProds" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WareHouseModelStoreContainer" CdmEntityContainer="WHEntities">
+          <EntitySetMapping Name="Clents">
+            <EntityTypeMapping TypeName="WareHouseModel.Clents">
+              <MappingFragment StoreEntitySet="Clents">
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="WareHouseModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Type">
+            <EntityTypeMapping TypeName="WareHouseModel.Type">
+              <MappingFragment StoreEntitySet="Type">
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UnLoad">
+            <EntityTypeMapping TypeName="WareHouseModel.UnLoad">
+              <MappingFragment StoreEntitySet="UnLoad">
+                <ScalarProperty Name="LoadID" ColumnName="LoadID" />
+                <ScalarProperty Name="LoadArticle" ColumnName="LoadArticle" />
+                <ScalarProperty Name="LoadName" ColumnName="LoadName" />
+                <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
+                <ScalarProperty Name="Loader" ColumnName="Loader" />
+                <ScalarProperty Name="LoadPrice" ColumnName="LoadPrice" />
+                <ScalarProperty Name="LoadCount" ColumnName="LoadCount" />
+                <ScalarProperty Name="LoadType" ColumnName="LoadType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="WareHouseModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserLName" ColumnName="UserLName" />
+                <ScalarProperty Name="UserFName" ColumnName="UserFName" />
+                <ScalarProperty Name="UserLogin" ColumnName="UserLogin" />
+                <ScalarProperty Name="UserPass" ColumnName="UserPass" />
+                <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WHProds">
+            <EntityTypeMapping TypeName="WareHouseModel.WHProds">
+              <MappingFragment StoreEntitySet="WHProds">
+                <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+                <ScalarProperty Name="ProdArticle" ColumnName="ProdArticle" />
+                <ScalarProperty Name="ProdName" ColumnName="ProdName" />
+                <ScalarProperty Name="ProdLoc" ColumnName="ProdLoc" />
+                <ScalarProperty Name="ProdPrice" ColumnName="ProdPrice" />
+                <ScalarProperty Name="ProdCount" ColumnName="ProdCount" />
+                <ScalarProperty Name="ProdType" ColumnName="ProdType" />
+                <ScalarProperty Name="ProdDate" ColumnName="ProdDate" />
+                <ScalarProperty Name="ProdImg" ColumnName="ProdImg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

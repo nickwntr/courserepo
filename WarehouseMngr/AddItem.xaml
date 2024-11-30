@@ -1,0 +1,31 @@
+﻿<Page x:Class="WarehouseMngr.AddItem"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WarehouseMngr"
+      mc:Ignorable="d" Height="265" Width="758"
+      Title="AddItem">
+
+    <Grid>
+        <TextBox Name="arttb" HorizontalAlignment="Left" Margin="92,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="173"/>
+        <TextBox Name="nametb" HorizontalAlignment="Left" Margin="328,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="173"/>
+        <TextBox Name="pricetb" HorizontalAlignment="Left" Margin="92,106,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="173"/>
+        <TextBox Name="counttb" HorizontalAlignment="Left" Margin="331,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="173"/>
+        <ComboBox HorizontalAlignment="Left" Name="Type" Margin="92,170,0,0" VerticalAlignment="Top" Width="173"/>
+        <Label Content="Артикул" HorizontalAlignment="Left" Margin="151,8,0,0" VerticalAlignment="Top"/>
+        <Label Content="Название" HorizontalAlignment="Left" Margin="383,8,0,0" VerticalAlignment="Top"/>
+        <Label Content="Цена" HorizontalAlignment="Left" Margin="159,75,0,0" VerticalAlignment="Top"/>
+        <Label Content="Кол-во" HorizontalAlignment="Left" Margin="390,75,0,0" VerticalAlignment="Top"/>
+        <Label Content="Тип" HorizontalAlignment="Left" Margin="163,139,0,0" VerticalAlignment="Top"/>
+        <Label Content="Дата" HorizontalAlignment="Left" Margin="399,141,0,0" VerticalAlignment="Top"/>
+        <DatePicker Name="date" HorizontalAlignment="Left" Margin="331,170,0,0" VerticalAlignment="Top" Width="173"/>
+        <Button Name="AddEditBtn" Content="Добавить" HorizontalAlignment="Left" Margin="447,235,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Image HorizontalAlignment="Left" Name="AddImg" Height="100" Margin="597,57,0,0" VerticalAlignment="Top" Width="100"/>
+        <TextBox Name="FilePath" HorizontalAlignment="Left" Margin="528,181,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155"/>
+        <Button Content="..." Name="path" HorizontalAlignment="Left" Margin="688,181,0,0" VerticalAlignment="Top" Width="29" Height="17" Click="path_Click"/>
+        <TextBox Name="LocBox" HorizontalAlignment="Left" Margin="92,235,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="173"/>
+        <Label Content="Место" HorizontalAlignment="Left" Margin="156,204,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Page>
